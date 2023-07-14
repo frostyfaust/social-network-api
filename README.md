@@ -2,8 +2,9 @@
 
 ## Description
 
+This project was aimed at showcasing an API that was created for a mock Social Network application. This project focuses on the ability to create users, add friends and creating a friend list, user's sharing their thoughts, and adding reactions to users thoughts.
 
-## Mock Video
+## Media
 Get,Put, Update, Delete on users and friends
 
 [Untitled_ Jul 14, 2023 2_09 AM.webm](https://github.com/frostyfaust/social-network-api/assets/55112932/328ed660-6563-4eb6-8c8d-cb0cbee35716)
@@ -17,8 +18,8 @@ Get,Put, Update, Delete on thoughts and reactions
 
 - Javascript
 - express
-- sequalize
-- mysql
+- mongoose
+- mongoDB
 
 ## Table of Contents
   
@@ -31,20 +32,9 @@ Get,Put, Update, Delete on thoughts and reactions
 
 ## Installation
 
-- run `npm install` to add the required dependendies.
-- log into mysql through your terminal by running `mysql -u <user> -p`.
-- once logged into mysql, run `SOURCE db/schema.sql`,  then you can `quit` out of mysql.
-- Then run `npm run seed` within your terminal.
-- you must update the `.env.EXAMPLE` file to include your mysql username and password and rename the file to `.env`.
-- to start this application, run `npm start` within your terminal.
-- Once started, head over to insomnia to start utilizing this application.
-- once you're finished, select quit to exit the application.
-
-other required installation:
-- MySQL
-- Insomnia
-
-    
+- Install Insomnia so that you can easily see how your routes will operate.
+- open the terminal within the root directory and initialize the application by running `npm install` so that all the proper dependencies are installed
+   
 ## Usage
 refer to Installation section to get proper installation
 
