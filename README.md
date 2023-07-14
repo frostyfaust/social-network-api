@@ -5,9 +5,11 @@
 
 ## Mock Video
 Get,Put, Update, Delete on users and friends
+
 [Untitled_ Jul 14, 2023 2_09 AM.webm](https://github.com/frostyfaust/social-network-api/assets/55112932/328ed660-6563-4eb6-8c8d-cb0cbee35716)
 
 Get,Put, Update, Delete on thoughts and reactions
+
 [Untitled_ Jul 14, 2023 2_09 AM.webm](https://github.com/frostyfaust/social-network-api/assets/55112932/b29476e5-b0e2-4c04-b1de-bbd8b0ed5d0e)
 
 
