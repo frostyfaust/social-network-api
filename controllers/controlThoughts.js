@@ -16,23 +16,37 @@ const controlThoughts = {
         res.status(500).json(err);
         }
     },
-    async getThoughtId(req,res){
-        try {
-            const thought = await Thought.findOne({ _id: req.params.Id })
-            .populate({
-                path: 'reactions',
-                select: '-__v'
-            })
-            .select('-__v');
+   getThoughtId({params},res){
+    Thought.findOne({_id: params.thoughtId})
+    .populate({
+      path:'reactions',
+      select:'-__v'
+    })
+    .select('-__v')
+    .then(data => {
+      console.log(data)
+      res.json(data)
+    })
+    .catch(err=>{
+      console.log(err);
+      res.status(400);
+    })
+        // try {
+        //     const thought = await Thought.findOne({ _id: req.params.id })
+        //     .populate({
+        //         path: 'reactions',
+        //         select: '-__v'
+        //     })
+        //     .select('-__v');
       
-            if (!thought) {
-              return res.status(404).json({ message: 'No thought with that ID' });
-            }
+        //     if (!thought) {
+        //       return res.status(404).json({ message: 'No thought with that ID' });
+        //     }
       
-            res.json(thought);
-          } catch (err) {
-            res.status(500).json(err);
-          }
+        //     res.json(thought);
+        //   } catch (err) {
+        //     res.status(500).json(err);
+        //   }
 
     },
     async newThought(req,res){
@@ -56,12 +70,12 @@ const controlThoughts = {
     async updateThought(req,res){
        try{
          const thought = await Thought.findOneAndUpdate(
-            { _id: req.params.id },
+            { _id: req.params.thoughtId },
             req.body,
             { new: true, runValidators:true}
         )
         if (!thought){
-            return res.status(404).json({ message: 'No thought with that ID' });
+            return res.status(405).json({ message: 'No thought with that ID' });
         }
         res.json(thought)
     } catch (err) {
@@ -119,11 +133,10 @@ const controlThoughts = {
             );
       
             if (!thought) {
-              return res.status(404)
-            .json({ message: 'No thought found with that ID' });
+              return res.status(404).json({ message: 'No thought found with that ID' });
             }
       
-            res.json(student);
+            res.json(thought);
           } catch (err) {
             res.status(500).json(err);
           }

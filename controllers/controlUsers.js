@@ -64,14 +64,14 @@ const controlUsers = {
     async newFriend(req,res){
         try{
             const friend = await User.findOne({_id: req.params.friendId})
-
+            console.log(friend);
             if(!friend){
                 return res.status(404).json({ message: 'No user with that ID' });
             }
 
             const user = await User.findOneAndUpdate(
-                { _id: params.userId },
-                { $push: { friends: params.friendId } },
+                { _id: req.params.userId },
+                { $push: { friends: req.params.friendId } },
                 { new: true }
             )
             if (!user){
@@ -79,21 +79,22 @@ const controlUsers = {
             }
             res.json(user)
         }catch (err) {
+            console.log(err)
             res.status(500).json(err);
           }
 
     },
     async deleteFriend(req,res){
         try {
-            const friend = await User.findOne({ _id: req.params.courseId });
+            const friend = await User.findOne({ _id: req.params.friendId });
       
             if (!friend) {
-              return res.status(404).json({ message: 'No user with that ID' });
+              return res.status(404).json({ message: 'No user with that ID!' });
             }
       
             const user = await User.findOneAndUpdate(
-                { _id: params.userId },
-                { $pull: { friends: params.friendId } },
+                { _id: req.params.userId },
+                { $pull: { friends: req.params.friendId } },
                 { new: true }
                 );
 
